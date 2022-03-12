@@ -4,5 +4,6 @@ make
 ```
 ### Run executable
 ```
-./pessoas -i/-u "nome" "data de nascimento"
+./pessoas -i '_nome_' '_datadenascimento_'
+./pessoas -o '_nºregisto_' '_datadenascimento_'
 ```
