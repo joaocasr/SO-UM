@@ -25,17 +25,23 @@ return c;
 
 int main(int argc, char * argv[]){
   pid_t pid,ant;
-  pid = fork();
+  pid = fork();// o fork devolve o pid do filho
   char buffFilho[SIZE];
+  int i=0;
   char buffPai[SIZE];
   if(pid==0){ // fork retorna 0 ao processo filho
 	  //Código do filho
+	i++;
+	printf("variavel nao partilhada filho i=%d\n",i);
 	sprintf(buffFilho, "[Fillo]Pid:%d , [Filho] Pid pai:%d\n",getpid(),getppid());
 	int tam = countBytes(buffFilho,sizeof(buffFilho));
 	write(1,buffFilho,tam);
   }else{//apos o filho terminar
 	  //Código do pai
-        sprintf(buffPai, "[Pai] Pid:%d , [Pai] Pid pai:%d [Pai] Pid filho: %d\n",getpid(),getppid(),pid);
+	  //como nao tem um wait o filho vai ficar orfao
+        i--;
+	printf("variavel nao partilhada pai i=%d\n",i);
+	sprintf(buffPai, "[Pai] Pid filho:%d , [Pai] Pid pai:%d [Pai] Pid: %d\n",pid,getpid(),getppid());
         int tam = countBytes(buffPai,sizeof(buffPai));
         write(1,buffPai,tam);
   }
