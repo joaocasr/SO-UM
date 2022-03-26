@@ -29,10 +29,6 @@ ssize_t readln(int fd, char *line, ssize_t size){
  }
 }
 
-//jtpaulo@di.uminho.pt
-
-//agora eu nao consigo escrever porque estou a pensar numa mulher que nem conheço
-// ? ver como armazenar inteiros num buffer 
 int main(int argc, char *argv[]){
   char buffer[buff_size];
   char buffer2[buff_size];

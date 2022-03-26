@@ -23,27 +23,28 @@ for(int i=0;i<linhas;i++){
    matrix[i][j] = rand() % 1000;
  }
 }
-
 int x = atoi(argv[1]);
-int status;
-int k=0;
+int k;
 int r,y;
-while(k<linhas){
+pid_t children[1024];
+int status;
+for(k=0;k<linhas;k++){
 pid_t child=fork();
 if(child==0){
 	if(procura(matrix,WEXITSTATUS(status),x,colunas)==1){;
 	 _exit(k);
 	}
-	else _exit(-1);
+	_exit(-1);
+}else{
+	children[k]=child;
 }
-k++;
 }
 pid_t pidchild;
 int c=0;
 int * aux=(int *) malloc(sizeof(int) * linhas);
 for(int l=0;l<linhas;l++){
- 	if(WEXITSTATUS(status)!=-1){	
-		pidchild = wait(&status);
+ 	if(WEXITSTATUS(status)<255){	
+		pidchild = waitpid(children[k],&status,0);
 		aux[c]=WEXITSTATUS(status); 
 		c++;	
 	}

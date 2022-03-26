@@ -17,7 +17,6 @@ ssize_t readln(int fd, char *line, ssize_t size){
  return tam-1;
 }
 
-//agora eu nao posso escrever porque esta uma rapariga lindissima a 2 metros e eu nao consigo pensar
 int main(int argc, char *argv[]){
   char buffer[buff_size];
   char buffer2[buff_size];
