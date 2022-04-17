@@ -10,8 +10,8 @@ int main(int argc, char *argv[]){
   char buffer[buff_size];
   ssize_t fread;
   while((fread=read(0,buffer,buff_size))>0){
-       //escritor do ficheiro do stdin a 1 para o read
+       //descritor do ficheiro do stdin a 1 para o read
       write(1,buffer,fread);
-      //escritor do ficheiro do stdout a 0 para o write
+      //descritor do ficheiro do stdout a 0 para o write
   }
 }
