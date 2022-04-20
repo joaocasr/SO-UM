@@ -7,13 +7,14 @@
 int main(int argc , char * argv){
 char *bash[4]={"grep","cut","uniq","wc"};
 int fds[4][2];
-if(pipe(fds[4])==-1){
-	perror("could not create pipe!");
-	_exit(-1);
-}
 int i;
 for(i=0;i<4;i++){
-	 if(i==0 && fork()==0){
+
+if(pipe(fds[i])==-1){
+        perror("could not create pipe!");
+        _exit(-1);
+}
+	if(i==0 && fork()==0){
 	   close(fds[i][0]);
 	   dup2(fds[i][1],1);
 	   close(fds[i][1]);
@@ -23,7 +24,6 @@ for(i=0;i<4;i++){
 	 if(i==0) close(fds[i][1]);
 	
 	if(i==1 && fork()==0){
-	   close(fds[i-1][1]);
 	   close(fds[i][0]);
            dup2(fds[i-1][0],0);
 	   dup2(fds[i][1],1);
@@ -38,7 +38,6 @@ for(i=0;i<4;i++){
         }
 
 	if(i==2 && fork()==0){
-           close(fds[i-1][1]);
            close(fds[i][0]);
            dup2(fds[i-1][0],0);
            dup2(fds[i][1],1);
@@ -53,7 +52,6 @@ for(i=0;i<4;i++){
 	}
 
 	if(i==3 && fork()==0){
-           close(fds[i-1][1]);
            dup2(fds[i-1][0],0);
            close(fds[i-1][0]);
            execlp(bash[i],bash[i],"-l",NULL);
