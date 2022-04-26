@@ -11,7 +11,6 @@ if(pipe(fds)==-1){
 	perror("could not create pipe!");
 	_exit(-1);
 }
-
 	 if(fork()==0){
 	   close(fds[0]);
 	   dup2(fds[1],1);
@@ -30,6 +29,8 @@ if(pipe(fds)==-1){
         }
 	close(fds[0]);
 int j;
-	for(j=0;j<2;j++) wait(NULL);
+	for(j=0;j<2;j++){
+	       	if(wait(NULL)==-1) perror("Error! My children :(");
+	}
 return 0;
 }
