@@ -39,7 +39,7 @@ for(i=0;i<100;i++){
    }
 }
 
-while(WIFEXITED(&status)!=-1){
+while(wait(&status)!=-1){
   if(WEXITSTATUS(status)==0){
   	count++;
   }
