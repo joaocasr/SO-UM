@@ -1,0 +1,46 @@
+Exame 2009 | SISTEMAS OPERATIVOS
+
+7 de Julho de 2009
+---------------------------------------------------------------------------------------
+
+1) 
+   - Modos de acesso 
+	User Mode:  Apenas temos acesso aos system calls disponibilizados pelo kernel
+	Assim, as aplicações em modo user não têm acesso ao hardware,pois executam
+	instruções sem previlégio, o que garante maior segurança e integridade do sistema.
+	
+	Kernel Mode: As aplicações têm acesso a recursos da máquina, executando instruções
+	com previlégio. Eg.: SO(sistema operativo)
+
+	Através das chamadas ao sistema podemos alterar o modo o que permite a uma aplicação
+	executar instruções previlegiadas(modo Kernel)
+
+   - Modos de execução
+  	Os CPU's atuais são capazes de executar mais de uma instrução
+	por clock cycle através de técnicas de pipeline e superescalaridade.
+	Através destas técnicas podemos processar várias instruções em paralelo,
+	o que permite tempos de execução inferiores.
+
+2)
+
+ Em sistemas de paginação os endereços lógicos da memória lógica são mapeados por uma tabela de paginação
+para endereços reais da memória física. Nestes sistemas temos vários programas que podem ser fragmentados
+em frames e por sua vez cada frame terá uma localização real na memoria física designada por página. 
+Se tivermos um elevado número de páginas em memória isso resulta num maior custo dos mecanismos de gestão de 
+memória, ou seja, isto resulta num maior overhead já que temos de armazenar e mapear um maior número de endereços.
+Por outro lado, quando não temos espaço na memória fisica suficiente para alocar paginas para um dado processo, pode acontecer
+o que é designado por thrashing, em que ocorrem sucessivos page fault levando com que o tempo de carregamento de paginas
+seja superior ao tempo de execução dos processos envolvidos(o sistema operativo está sempre a carregar paginas do disco
+enquanto que as que estavam em memoria sao paged out, paginas estas que são necessárias para a execucão de um processo, pelo que será sempre
+necessario carregamentos do disco posteriores). Isto acarreta um elevado overhead e prejudica a performance do sistema.
+
+
+3)
+Em websites em que temos conteudo de multimedia é conveniente transferir para memoria apenas paginas à medida que é necessário pois em sistemas como
+o youtube em que um utilizador esta a visualizar um video, o conteudo desse video não é automaticamento todo carregado. Ora se carregássemos
+tudo para memoria isso acarrateria um elevado custo de gestao de memoria.
+Em algoritmos de substituição de páginas, temos que o algoritmo ótimo é o least recently used.Porem, nesse algoritmo guarda em memoria
+uma lista ligada de todas as paginas, sendo que a substituída é a pagina que é a menos usada recentemente. Isto acaba por nao ser muito viavel.
+Num caso de um sistema de discos organizados em RAID 0 em que temos block-level striping temos varios discos
+a participarem no acesso a paginas, com um tempo de acesso semelhante no caso de termos apenas um disco. No entanto,
+é possível ler muito mais do que se tivessemos apenas um disco. Isto permite ao sistema mais coisas atraves deste paralelismo.
