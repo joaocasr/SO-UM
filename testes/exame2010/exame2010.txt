@@ -1,0 +1,17 @@
+EXAME 2010 - SISTEMAS OPERATIVOS
+
+6 de Julho de 2010
+---------------------------------------
+
+1)
+ Esta lentidao do carregamento de paginas web pode dever-se essencialmente aos hard disks do sistema, pois uma vez que 
+que estes são compostos por partes moveis mecanicas e um processo eletromagnetico na escrita e leitura de dados isto 
+pode proporcionar falhas e consequentemente quedas de performance. Caso o hard disk do servidor web esteja cheio,
+isso podera comprometer a performance dos servicos. Se estivermos a armazenar um conjunto grande de ficheiros em memoria
+nomeadamente numa file allocation table isto implica elevados custos de gestao de memoria, visto que temos uma tabela com
+toda a informacao de diretorias e arquivos em memória. 
+
+2) Em memoria virtual paginada temos a fragmentacao dos programas em frames, sendo que cada frame é mapeado para um endereço
+da memoria fisica(designada por pagina). Atraves da memoria virtual podemos executar programas maiores que o tamanho da memoria
+disponivel, executando parcialmente parte do codigo pretendido. Isso permite-nos ter varios programas a correrem em simultaneo e 
+uma melhor gestao da memoria principal, já que lemos apenas alguns overlays
