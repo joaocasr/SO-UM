@@ -39,8 +39,12 @@ necessario carregamentos do disco posteriores). Isto acarreta um elevado overhea
 Em websites em que temos conteudo de multimedia é conveniente transferir para memoria apenas paginas à medida que é necessário pois em sistemas como
 o youtube em que um utilizador esta a visualizar um video, o conteudo desse video não é automaticamento todo carregado. Ora se carregássemos
 tudo para memoria isso acarrateria um elevado custo de gestao de memoria.
-Em algoritmos de substituição de páginas, temos que o algoritmo ótimo é o least recently used.Porem, nesse algoritmo guarda em memoria
-uma lista ligada de todas as paginas, sendo que a substituída é a pagina que é a menos usada recentemente. Isto acaba por nao ser muito viavel.
+No que toca a escalonamentos de disco é necessario ter em conta o desempenho do sistema atraves de fatores como o posicionamento do braco de leitura e o 
+numero de rotacoes do disco: 
+	first-come,first-served - apesasr de ser um algoritmo de facil implementacao, nao temos otimizacao do tempo de deslocamento do braco e a execucao é lenta
+	Short Seek Time First - apesar de ja termos a tal otimizacao, as posicoes perifericas apresentariam o servico de menor qualidade
+	Elevador- ao contrario do escalonamento anterior a busca é otimizada e todas as requisições possuem a mesma garantia de serem atendidas.
 Num caso de um sistema de discos organizados em RAID 0 em que temos block-level striping temos varios discos
 a participarem no acesso a paginas, com um tempo de acesso semelhante no caso de termos apenas um disco. No entanto,
-é possível ler muito mais do que se tivessemos apenas um disco. Isto permite ao sistema fazer mais coisas atraves deste paralelismo.
+é possível ler muito mais do que se tivessemos apenas um disco. Deste modo, temos uma boa distribuicao de carga de acesso dos discos.
+Isto permite ao sistema ler um maior volume de dados atraves deste paralelismo.
