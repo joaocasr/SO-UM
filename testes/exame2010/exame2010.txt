@@ -15,3 +15,10 @@ toda a informacao de diretorias e arquivos em memória.
 da memoria fisica(designada por pagina). Atraves da memoria virtual podemos executar programas maiores que o tamanho da memoria
 disponivel, executando parcialmente parte do codigo pretendido. Isso permite-nos ter varios programas a correrem em simultaneo e 
 uma melhor gestao da memoria principal, já que lemos apenas alguns overlays
+
+3) Quando estamos a tratar de um grande volume de dados, poderia ser interessante não termos só um disco, mas sim
+um conjunto de varios discos num sistema RAID, de forma a obtermos uma melhor performance de disco devido a escrita e leitura paralelas.
+Caso um dos discos falhe, assim teremos a garantia de que o sistema continuará a correr o que é uma mais valia. Por outro lado, se for
+implementado um RAID 5 em que apesar de termos performances otimas e uma velocidade de leitura boa, vamo-nos deparar com algumas dificuldades,
+nomeadamente, a complexidade de implementacao,o facto de nao ser usada a totalidade da capacidade do disco(devido à paridade),entre outros
+
