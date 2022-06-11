@@ -43,4 +43,4 @@ Em algoritmos de substituição de páginas, temos que o algoritmo ótimo é o l
 uma lista ligada de todas as paginas, sendo que a substituída é a pagina que é a menos usada recentemente. Isto acaba por nao ser muito viavel.
 Num caso de um sistema de discos organizados em RAID 0 em que temos block-level striping temos varios discos
 a participarem no acesso a paginas, com um tempo de acesso semelhante no caso de termos apenas um disco. No entanto,
-é possível ler muito mais do que se tivessemos apenas um disco. Isto permite ao sistema mais coisas atraves deste paralelismo.
+é possível ler muito mais do que se tivessemos apenas um disco. Isto permite ao sistema fazer mais coisas atraves deste paralelismo.
