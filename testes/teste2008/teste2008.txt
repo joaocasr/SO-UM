@@ -1,0 +1,26 @@
+TESTE 2008 | SISTEMAS OPERATIVOS
+
+30 de Abril de 2008
+-------------------------------------
+
+1) Existem 2 modos num sistema de computadores:
+	-user mode: em que sao executadas instrucoes sem previlegio
+	As aplicacoes sao corridas em user mode, sendo que quando é 
+	necessario requisitar recursos de hardware é feito um pedido ao kernel
+	para que o processo tenha acesso a esses previlegios
+	-> assim o computador entra em kernel mode. Quando o processo
+	ja nao precisa desses recursos e terminou a sua tarefa, o sistema
+	entra novamente em modo user.
+Através dos system calls é possivel esta requisicao de pedidos entre o user e o kernel.
+Uma library call podemos definir como um pedido para o uso de uma funcao que esta definida numa
+biblioteca,sendo necessario importar a biblioteca em questao
+
+2)
+Em escalonamentos shortest job next(sjn) o sistema necessita saber em antemao a duracao da execuçao dos vários processos
+de forma a saber qual é a próxima tarefa que será processada. Deste modo, é necessário manter em memória os vários 
+registos dos pedidos que vão chegando à fila de espera, o que pode gerar maior overhead e um custo consideravel no que toca à gestao de memoria.
+Por outro lado, se estiverem a chegar pedidos curtos, será inevitavel casos de starvation pois processos longos não terão
+tempo de processamento quase nenhum comparativamente aos outros. 
+Já um escalonamento round robin(rr) é um pouco mais justo para todos os processos, já que atribui um tempo quantum a cada uma das tarefas.
+Caso um processo nao termine a sua execução, o sistema operativo tira-lhe cpu(desafetacao forçada) e este terá voltar para ultimo na fila de espera em estado ready,
+dando a vez a outras tarefas.
