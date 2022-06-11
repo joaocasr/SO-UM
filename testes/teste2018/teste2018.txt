@@ -1,0 +1,33 @@
+3) Temos primeiro de ter em conta que um escalonamento FIFO(do tipo fcfs)
+é cooperativo, ou seja, um processo será processado quando o processo
+em execução libertar o cpu.
+Neste caso temos 4 processos: Pa, Pb, Pc, Pd
+.Os 4 processos serao executados em simultaneo
+.O primeiro processo a pedir CPU é o que vai ser processado, sendo que
+processos posteriores terao de esperar
+.O programa demora 5 minutos a ser executado pelo que cada processo 
+tera uma duracao de 5 minutos
+
+Pa- 5 (demora 5 min a executar)
+Pb- 5 5 (espera 5 min pelo Pa + 5 min para executar)
+Pc- 5 5 5 (espera 5 min pelo Pa + espera 5 min pelo Pb + 5 min para executar)
+Pd- 5 5 5 5 (espera 5 min pelo Pa + espera 5 min pelo Pb + espera 5 min pelo Pc+ 5 min para executar)
+
+Como vemos, todos os processos executam ao mesmo tempo sendo que têm de esperar
+pelo tempo correspondente antes de começarem a ser executados.
+
+TExecMed = (5 + 10 + 15 + 20)/4 = 12.5 min
+
+Em algoritmos Round Robin (preemptive) todos os processos terão um tempo quantum que é igual para todos.
+Caso o processo nao termine nesse tempo quantum irá para a fila de espera e sera atribuido
+um novo quantum ate que este processo termine.
+
+Neste caso como todos os processos terão um tempo de execucao de 5 minutos. Podemos atribuir um
+tempo quantum de 5 min. Deste modo os processos serão todos atendidos em 5 minutos.  
+
+Pa-5
+Pb-5
+Pc-5
+Pd-5
+
+TexecMed = (5+5+5+5)/4 = 5 min
